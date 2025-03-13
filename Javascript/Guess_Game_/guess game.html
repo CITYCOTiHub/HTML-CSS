@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <script src="https://kit.fontawesome.com/53a255a459.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+
+
+    <style>
+
+      
+
+        body{
+          background-image: url(images/download\ \(1\).jpeg);
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            font-family: 'Press Start 2P', cursive;
+
+        }
+
+.main{
+
+    width: 400px;
+    height: 400px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color:rgb(162, 149, 196);
+    
+}
+
+
+.main label {
+
+  margin-top:30px;
+  font-weight: 700;
+}
+
+.main input{
+
+  margin-top: 40px;
+font-size: medium;
+font-weight: 500;
+}
+
+.main button{
+  border-radius: 5px;
+  color: white; 
+  position: absolute;
+  left: 44%;
+  right: 50%;
+  width: 150px;
+  margin-top: 50px;
+background-color:  rgb(67, 64, 138);
+ 
+ 
+}
+
+.main button:hover{
+  box-shadow: 2px 2px 4px white;
+ transform: scale(1.05);
+
+ background-color: rgb(67, 64, 138) ;
+
+}
+
+
+.instruction{
+
+  color:rgb(128, 62, 62);
+}
+
+
+img{
+
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center ;
+}
+    </style>
+</head>
+<body>
+
+
+ 
+    <div class="main">
+
+      <div class="instruction">
+        <b>Instruction:</b>Guess numbers between 0-10 You have 5 attemps <b>Good Luck</b>
+    
+      </div>
+
+      <label for="" id="inst" >Guess How Many Finger i am Holding up</label>
+      <br>
+    <input type="number" id="numberinput" placeholder="Enter number" class="form-control">
+    <br>
+    <button id="guess" class="btn">Submit</button>
+
+    <img src="images/Premium Vector _ Pixel art night game background with grass sky and you won game 8bit text Game screen pixel.jpeg" id="image" alt="" style="display: none; ">
+</div>
+    
+
+    <script>
+         var  correctnumber= Math.floor(Math.random() * 11);
+        var attemps=0;
+     
+
+      document.getElementById("guess").onclick=function(){
+
+    
+     
+      var numberattemps=5;
+
+      var guessednumber=parseInt(document.getElementById("numberinput").value);
+
+      if (isNaN(guessednumber)){
+        alert("please enter valid number")
+      }
+
+      attemps++;
+
+      if(guessednumber==correctnumber){
+        alert("correct");
+         document.getElementById("inst").innerHTML="you win congratulation"
+         
+         document.body.style.backgroundImage = "url('images/Premium Vector _ Pixel art night game background with grass sky and you won game 8bit text Game screen pixel.jpeg')"
+
+
+      }else if(attemps>=numberattemps){
+
+   
+        document.getElementById("inst").innerHTML="you have reached maximum limit you lost boooooo, the correct number was" + correctnumber
+        document.getElementById("numberinput").style.display = "none";
+         document.getElementById("guess").style.display = "none";
+      }else {
+     alert("try again don't give up")
+      }
+
+      }
+
+    </script>
+</body>
+</html>
